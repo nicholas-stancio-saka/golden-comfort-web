@@ -1,0 +1,98 @@
+{
+  "series": [
+    {
+      "id": "essential",
+      "name": "Essential",
+      "foam": "D22",
+      "feel": "Medium",
+      "warranty": "15 tahun",
+      "target": "Budget, kos, kamar tamu",
+      "description": "Kualitas terjamin dengan harga terjangkau. Garansi 15 tahun anti-kempes.",
+      "thicknesses": ["15cm", "18cm", "20cm"],
+      "prices": {
+        "Single 90×200": { "15cm": 750000, "18cm": 850000, "20cm": 950000 },
+        "Super Single 120×200": { "15cm": 950000, "18cm": 1050000, "20cm": 1150000 },
+        "Queen 160×200": { "15cm": 1200000, "18cm": 1350000, "20cm": 1500000 },
+        "King 180×200": { "15cm": 1350000, "18cm": 1500000, "20cm": 1650000 },
+        "Super King 200×200": { "15cm": 1500000, "18cm": 1650000, "20cm": 1800000 }
+      }
+    },
+    {
+      "id": "comfort",
+      "name": "Comfort",
+      "foam": "D25",
+      "feel": "Medium-Firm",
+      "warranty": "20 tahun",
+      "target": "Tidur harian, pasangan",
+      "description": "Sweet spot antara kenyamanan dan support. Pilihan terbaik untuk penggunaan sehari-hari.",
+      "thicknesses": ["20cm", "22cm", "25cm"],
+      "prices": {
+        "Single 90×200": { "20cm": 1050000, "22cm": 1150000, "25cm": 1250000 },
+        "Super Single 120×200": { "20cm": 1300000, "22cm": 1400000, "25cm": 1550000 },
+        "Queen 160×200": { "20cm": 1650000, "22cm": 1800000, "25cm": 1950000 },
+        "King 180×200": { "20cm": 1850000, "22cm": 2000000, "25cm": 2200000 },
+        "Super King 200×200": { "20cm": 2050000, "22cm": 2200000, "25cm": 2400000 }
+      }
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "foam": "D30",
+      "feel": "Firm",
+      "warranty": "25 tahun",
+      "target": "Preferensi keras, tidur tengkurap",
+      "description": "Untuk yang suka kasur keras. Firm tanpa tenggelam, tapi bukan orthopedic.",
+      "thicknesses": ["20cm", "25cm"],
+      "prices": {
+        "Single 90×200": { "20cm": 1250000, "25cm": 1500000 },
+        "Super Single 120×200": { "20cm": 1550000, "25cm": 1850000 },
+        "Queen 160×200": { "20cm": 2000000, "25cm": 2400000 },
+        "King 180×200": { "20cm": 2200000, "25cm": 2650000 },
+        "Super King 200×200": { "20cm": 2450000, "25cm": 2950000 }
+      }
+    },
+    {
+      "id": "support-plus",
+      "name": "Support+",
+      "foam": "R70 + D22",
+      "feel": "Orthopedic",
+      "warranty": "25 tahun",
+      "target": "Sakit punggung, berat 100kg+",
+      "description": "Orthopedic asli dengan konstruksi 2 lapis: base R70 untuk support tulang belakang, top D22 untuk kenyamanan.",
+      "thicknesses": ["15cm", "20cm", "25cm"],
+      "construction": {
+        "15cm": "10cm R70 + 5cm D22",
+        "20cm": "12cm R70 + 8cm D22",
+        "25cm": "15cm R70 + 10cm D22"
+      },
+      "prices": {
+        "Single 90×200": { "15cm": 1250000, "20cm": 1500000, "25cm": 1750000 },
+        "Super Single 120×200": { "15cm": 1550000, "20cm": 1800000, "25cm": 2100000 },
+        "Queen 160×200": { "15cm": 2000000, "20cm": 2250000, "25cm": 2650000 },
+        "King 180×200": { "15cm": 2200000, "20cm": 2450000, "25cm": 2900000 },
+        "Super King 200×200": { "15cm": 2450000, "20cm": 2700000, "25cm": 3200000 }
+      }
+    }
+  ],
+  "sizes": [
+    { "name": "Single", "dimensions": "90×200 cm", "width": 90 },
+    { "name": "Super Single", "dimensions": "120×200 cm", "width": 120 },
+    { "name": "Queen", "dimensions": "160×200 cm", "width": 160 },
+    { "name": "King", "dimensions": "180×200 cm", "width": 180 },
+    { "name": "Super King", "dimensions": "200×200 cm", "width": 200 }
+  ],
+  "customSizing": {
+    "note": "Ukuran custom tersedia! Harga dihitung berdasarkan ukuran standar terdekat ke atas.",
+    "examples": [
+      { "custom": "77×165cm", "priced_as": "90×200cm" },
+      { "custom": "121×190cm", "priced_as": "160×200cm" },
+      { "custom": "115×200cm", "priced_as": "120×200cm" }
+    ],
+    "timeline": "7-14 hari kerja"
+  },
+  "contact": {
+    "whatsapp": "+6287778131579",
+    "whatsappDisplay": "0877-7813-1579",
+    "hours": "Senin-Jumat 09:00-17:00, Sabtu 09:00-12:00"
+  }
+}

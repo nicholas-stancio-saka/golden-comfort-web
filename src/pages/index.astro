@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import products from '../data/products.json';
+
+const whatsappLink = "https://wa.me/6287778131579";
+
+// Get starting prices for each series
+const seriesWithPrices = products.series.map(series => {
+  const sizes = Object.keys(series.prices);
+  const firstSize = sizes[0];
+  const thicknesses = Object.keys(series.prices[firstSize]);
+  const startingPrice = series.prices[firstSize][thicknesses[0]];
+  return { ...series, startingPrice };
+});
+---
+
+<Layout title="Workshop Kasur Indonesia">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-amber-50 to-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Workshop Kasur Indonesia
+        </h1>
+        <p class="text-xl lg:text-2xl text-amber-600 font-medium mb-4">
+          Ukuran Custom & Orthopedic
+        </p>
+        <p class="text-2xl lg:text-3xl text-gray-700 italic mb-8">
+          "Dibuat pas untuk Anda"
+        </p>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Kasur yang pas untuk tempat tidur Anda, tubuh Anda, dan budget Anda.
+          Langsung dari workshop, 25-40% lebih hemat dari retail.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
+          >
+            Chat WhatsApp Sekarang
+          </a>
+          <a
+            href="/products"
+            class="bg-white hover:bg-gray-50 text-gray-800 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-200 transition-colors"
+          >
+            Lihat Produk
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Custom Sizing -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Ukuran Custom</h3>
+          <p class="text-gray-600">
+            Tempat tidur antik? Ruang sempit? Dimensi aneh? Kami buat ukuran apa saja — dari 60×90 sampai 200×200 cm.
+          </p>
+        </div>
+
+        <!-- True Orthopedic -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Orthopedic Asli</h3>
+          <p class="text-gray-600">
+            Bukan cuma "keras". Support+ kami pakai busa R70 (density 70 kg/m³) — standar orthopedic sebenarnya, bukan D30 yang cuma 30 kg/m³.
+          </p>
+        </div>
+
+        <!-- Workshop Direct -->
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Langsung dari Workshop</h3>
+          <p class="text-gray-600">
+            Tanpa perantara, tanpa markup toko. Hemat 25-40% dibanding harga retail dengan kualitas yang sama.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          4 Seri untuk Setiap Kebutuhan
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Dari budget-friendly sampai orthopedic profesional. Garansi 15-25 tahun.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {seriesWithPrices.map((series) => (
+          <ProductCard
+            id={series.id}
+            name={series.name}
+            foam={series.foam}
+            feel={series.feel}
+            warranty={series.warranty}
+            target={series.target}
+            description={series.description}
+            startingPrice={series.startingPrice}
+          />
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/products"
+          class="inline-block bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
+        >
+          Lihat Semua Produk & Harga
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Order CTA -->
+  <section class="py-16 bg-gradient-to-r from-amber-500 to-amber-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+        Butuh Ukuran Khusus?
+      </h2>
+      <p class="text-xl text-amber-100 mb-8">
+        Kirim ukuran Anda, kami buatkan dalam 7-14 hari kerja.
+        Gratis ongkir untuk sebagian besar JABODETABEK.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/custom-order"
+          class="bg-white hover:bg-gray-100 text-amber-600 px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
+        >
+          Cara Order Custom
+        </a>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
+        >
+          Konsultasi Gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Different -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          Mengapa Golden Comfort?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Cover Knit Premium</h3>
+            <p class="text-gray-600">Semua model pakai cover knit — sama dengan brand 5-10 juta.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Garansi 15-25 Tahun</h3>
+            <p class="text-gray-600">Anti-kempes, tidak akan turun lebih dari 1.5 inch.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Gratis Ongkir JABODETABEK</h3>
+            <p class="text-gray-600">Untuk sebagian besar area (beberapa area terpencil tidak termasuk).</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">COD Tersedia</h3>
+            <p class="text-gray-600">Bayar saat barang sampai untuk area JABODETABEK.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+        Siap Tidur Lebih Nyaman?
+      </h2>
+      <p class="text-xl text-gray-400 mb-8">
+        Chat sekarang, konsultasi gratis. Tanpa commitment.
+      </p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
+      >
+        Chat WhatsApp Sekarang
+      </a>
+      <p class="text-gray-500 mt-4 text-sm">
+        Respon cepat di jam kerja (Senin-Jumat 09:00-17:00, Sabtu 09:00-12:00)
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

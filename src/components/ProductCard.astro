@@ -1,0 +1,74 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  foam: string;
+  feel: string;
+  warranty: string;
+  target: string;
+  description: string;
+  startingPrice: number;
+}
+
+const { id, name, foam, feel, warranty, target, description, startingPrice } = Astro.props;
+
+function formatPrice(price: number): string {
+  return new Intl.NumberFormat('id-ID').format(price);
+}
+
+const whatsappLink = `https://wa.me/6287778131579?text=${encodeURIComponent(`Halo, saya tertarik dengan kasur ${name}. Bisa info lebih lanjut?`)}`;
+---
+
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+  <div class="p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900">{name}</h3>
+        <p class="text-amber-600 font-medium">{feel}</p>
+      </div>
+      <span class="bg-amber-100 text-amber-800 text-sm font-medium px-3 py-1 rounded-full">
+        {warranty}
+      </span>
+    </div>
+
+    <!-- Foam Type Badge -->
+    <div class="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full mb-4">
+      Busa {foam}
+    </div>
+
+    <!-- Description -->
+    <p class="text-gray-600 mb-4">{description}</p>
+
+    <!-- Target -->
+    <p class="text-sm text-gray-500 mb-4">
+      <span class="font-medium">Cocok untuk:</span> {target}
+    </p>
+
+    <!-- Price -->
+    <div class="border-t pt-4 mt-4">
+      <p class="text-sm text-gray-500">Mulai dari</p>
+      <p class="text-3xl font-bold text-gray-900">
+        Rp {formatPrice(startingPrice)}
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-6 flex gap-3">
+      <a
+        href={`/products#${id}`}
+        class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 rounded-lg font-medium transition-colors"
+      >
+        Lihat Detail
+      </a>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition-colors"
+      >
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>

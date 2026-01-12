@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const faqs = [
+  {
+    category: "Produk",
+    questions: [
+      {
+        q: "Apa bedanya Essential, Comfort, Support, dan Support+?",
+        a: "Essential (D22) untuk budget/kamar tamu, Comfort (D25) untuk tidur harian, Support (D30) untuk yang suka keras, dan Support+ (R70+D22) untuk orthopedic asli. Makin tinggi seri, makin lama garansinya (15-25 tahun)."
+      },
+      {
+        q: "Apa itu busa R70? Kenapa beda dengan D30?",
+        a: "D-number menunjukkan density (kepadatan). D30 = 30 kg/m³, R70 = 70 kg/m³. Busa R70 jauh lebih padat, memberikan support tulang belakang yang sesungguhnya — ini standar orthopedic asli. D30 hanya terasa keras, tapi bukan orthopedic grade."
+      },
+      {
+        q: "Cover pakai apa?",
+        a: "Semua model pakai cover knit premium — sama dengan yang dipakai brand 5-10 juta. Tidak ada opsi cover murah karena kami percaya kualitas tidak boleh dikompromikan."
+      },
+      {
+        q: "Apakah bisa request tingkat kekerasan?",
+        a: "Ya, dalam batas series yang Anda pilih. Essential = medium, Comfort = medium-firm, Support = firm, Support+ = orthopedic (firm base, medium top)."
+      }
+    ]
+  },
+  {
+    category: "Custom Order",
+    questions: [
+      {
+        q: "Ukuran minimum dan maksimum custom?",
+        a: "Minimum sekitar 60×90 cm (bayi/anak), maksimum 200×200 cm (Super King). Untuk ukuran lebih besar dari Super King, hubungi kami untuk konsultasi."
+      },
+      {
+        q: "Bagaimana cara hitung harga custom?",
+        a: "Harga dihitung berdasarkan ukuran standar terdekat ke ATAS. Contoh: 121×190 cm → harga Queen 160×200 cm. Anda bayar harga standar, dapat ukuran custom."
+      },
+      {
+        q: "Bisa bikin bentuk L atau bulat?",
+        a: "Bisa. Untuk bentuk non-standar, kami hitung berdasarkan total bahan yang digunakan. Hubungi WhatsApp untuk quotation."
+      },
+      {
+        q: "Berapa lama produksi custom?",
+        a: "7-14 hari kerja tergantung ukuran dan series. Setelah selesai, pengiriman 2-5 hari lagi."
+      }
+    ]
+  },
+  {
+    category: "Garansi",
+    questions: [
+      {
+        q: "Garansi mencakup apa saja?",
+        a: "Garansi mencakup: kempes berlebihan (turun >1.5 inch), jahitan terlepas, kerusakan struktur busa. Tidak mencakup: bekas noda, kerusakan akibat penggunaan salah, perubahan preferensi."
+      },
+      {
+        q: "Apa bedanya garansi 15, 20, dan 25 tahun?",
+        a: "15 tahun = anti-kempes. 20 tahun = anti-kempes + integritas struktur. 25 tahun = coverage penuh termasuk edge support."
+      },
+      {
+        q: "Bagaimana klaim garansi?",
+        a: "Kirim foto kerusakan + foto bukti pembelian ke WhatsApp. Tim kami evaluasi dalam 3-5 hari kerja dan hubungi Anda untuk langkah selanjutnya."
+      }
+    ]
+  },
+  {
+    category: "Pengiriman & Pembayaran",
+    questions: [
+      {
+        q: "Area mana saja yang free delivery?",
+        a: "Sebagian besar JABODETABEK. Beberapa area terpencil tidak termasuk — chat dulu untuk konfirmasi area Anda."
+      },
+      {
+        q: "Bisa COD?",
+        a: "Bisa, untuk area JABODETABEK. Hubungi WhatsApp untuk detail."
+      },
+      {
+        q: "Metode pembayaran apa saja?",
+        a: "Transfer bank dan COD untuk JABODETABEK. Untuk custom order, deposit 30% dulu, sisanya 70% sebelum kirim."
+      },
+      {
+        q: "Apakah ada biaya tambahan untuk naik ke lantai?",
+        a: "Standar: kirim sampai depan pintu. Premium service (+Rp 100k): bawa ke kamar, pasang di frame, angkut packaging lama."
+      }
+    ]
+  }
+];
+
+const whatsappLink = "https://wa.me/6287778131579";
+---
+
+<Layout title="FAQ" description="Pertanyaan yang sering diajukan tentang kasur Golden Comfort. Produk, garansi, pengiriman, dan custom order.">
+  <Header />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-amber-50 to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        FAQ
+      </h1>
+      <p class="text-lg text-gray-600">
+        Pertanyaan yang sering diajukan. Tidak ketemu jawabannya? Chat kami!
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Sections -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {faqs.map((section, sectionIndex) => (
+        <div class={sectionIndex > 0 ? 'mt-12' : ''}>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{section.category}</h2>
+          <div class="space-y-4">
+            {section.questions.map((faq, i) => (
+              <details class="group bg-gray-50 rounded-xl overflow-hidden">
+                <summary class="flex justify-between items-center cursor-pointer p-6 hover:bg-gray-100 transition-colors">
+                  <span class="font-medium text-gray-900 pr-4">{faq.q}</span>
+                  <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="px-6 pb-6 text-gray-600">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-amber-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">
+        Masih Ada Pertanyaan?
+      </h2>
+      <p class="text-gray-600 mb-6">
+        Chat langsung via WhatsApp, kami bantu jawab.
+      </p>
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
+      >
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Chat WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
