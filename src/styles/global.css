@@ -31,6 +31,7 @@
 .bg-gc-blue { background-color: var(--gc-blue); }
 .bg-gc-cream { background-color: var(--gc-cream); }
 .bg-gc-blue-light { background-color: var(--gc-blue-light); }
+.bg-gc-text { background-color: var(--gc-text); }
 
 .border-gc-gold { border-color: var(--gc-gold); }
 .border-gc-blue { border-color: var(--gc-blue); }
