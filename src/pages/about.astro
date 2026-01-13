@@ -6,33 +6,38 @@ import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 
-const whatsappLink = "https://wa.me/6287778131579";
+const whatsappBase = "https://wa.me/6287778131579?text=";
+const whatsappVisit = `${whatsappBase}${encodeURIComponent("Halo, saya mau tanya jadwal kunjungan ke workshop.")}`;
+const whatsappConsult = `${whatsappBase}${encodeURIComponent("Halo, saya mau konsultasi tentang kasur.")}`;
 ---
 
-<Layout title="Tentang Kami" description="Golden Comfort - Workshop kasur Indonesia. Spesialis ukuran custom dan kasur orthopedic asli.">
+<Layout title="Tentang Kami - Workshop Kasur" description="Golden Comfort - Workshop kasur di Tangerang Selatan. Spesialis ukuran custom dan kasur orthopedic asli. Bisa kunjungi by appointment.">
   <Header />
 
   <!-- Hero -->
-  <section class="bg-gradient-to-b from-amber-50 to-white py-16 lg:py-20">
+  <section class="bg-gradient-to-b from-gc-cream to-white py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="text-center lg:text-left">
-          <h1 class="text-3xl lg:text-4xl font-bold text-stone-900 mb-4">
+          <p class="text-gc-gold font-semibold text-sm uppercase tracking-wider mb-3">
+            Tentang Kami
+          </p>
+          <h1 class="text-3xl lg:text-4xl font-bold text-gc-text mb-4">
             Workshop Kasur Indonesia
           </h1>
-          <p class="text-lg text-amber-600 italic mb-6">
+          <p class="text-lg text-gc-blue italic mb-6">
             "Dibuat pas untuk Anda"
           </p>
-          <p class="text-stone-600 leading-relaxed mb-4">
+          <p class="text-gc-muted leading-relaxed mb-4">
             Kami bukan brand besar dengan showroom mewah dan tim marketing ratusan orang.
-            Kami bengkel kasur yang fokus pada satu hal: <strong>buat kasur yang pas untuk Anda</strong>.
+            Kami <strong class="text-gc-text">bengkel kasur</strong> yang fokus pada satu hal: <strong class="text-gc-text">buat kasur yang pas untuk Anda</strong>.
           </p>
-          <p class="text-stone-600 leading-relaxed">
-            Tanpa showroom = tanpa markup 40-60%. Hasilnya: kasur berkualitas dengan harga <strong>25-40% lebih murah</strong> dari toko retail.
+          <p class="text-gc-muted leading-relaxed">
+            Tanpa showroom = tanpa markup 40-60%. Hasilnya: kasur berkualitas dengan harga wajar — langsung dari yang buat.
           </p>
         </div>
         <div>
-          <ImagePlaceholder label="Foto workshop interior" aspectRatio="4/3" class="shadow-lg" />
+          <ImagePlaceholder label="Foto workshop interior" aspectRatio="4/3" class="shadow-lg rounded-2xl" />
         </div>
       </div>
     </div>
@@ -41,49 +46,96 @@ const whatsappLink = "https://wa.me/6287778131579";
   <!-- What Makes Us Different -->
   <Section background="white">
     <div class="text-center mb-10">
-      <h2 class="text-2xl lg:text-3xl font-bold text-stone-900 mb-3">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gc-text mb-3">
         Apa yang Membuat Kami Berbeda
       </h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-stone-50 rounded-2xl p-6">
-        <h3 class="font-bold text-stone-900 mb-3">Ukuran Custom</h3>
-        <p class="text-stone-600 text-sm leading-relaxed">
-          Brand besar stok gudang, tidak bisa ukuran aneh. Kami buat sesuai pesanan — 77×165 cm, bentuk L, apapun.
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-3">Ukuran Custom</h3>
+        <p class="text-gc-muted text-sm leading-relaxed">
+          Brand besar stok gudang, tidak bisa ukuran aneh. Kami buat sesuai pesanan — ukuran apa saja, bentuk apa saja.
         </p>
       </div>
-      <div class="bg-stone-50 rounded-2xl p-6">
-        <h3 class="font-bold text-stone-900 mb-3">Orthopedic Asli</h3>
-        <p class="text-stone-600 text-sm leading-relaxed">
-          Support+ pakai R70 (70 kg/m³), bukan D30 yang cuma 30 kg/m³. Ini cara premium orthopedic sebenarnya dibuat.
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-blue/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-3">Orthopedic Asli</h3>
+        <p class="text-gc-muted text-sm leading-relaxed">
+          Kami pakai R70 (70 kg/m³), bukan D30 yang cuma 30 kg/m³. Ini cara kasur orthopedic sebenarnya dibuat.
         </p>
       </div>
-      <div class="bg-stone-50 rounded-2xl p-6">
-        <h3 class="font-bold text-stone-900 mb-3">Harga Wajar</h3>
-        <p class="text-stone-600 text-sm leading-relaxed">
-          Tanpa showroom mewah, tanpa tim marketing besar. Cover knit premium di harga 25-40% lebih murah dari retail.
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-3">Harga Wajar</h3>
+        <p class="text-gc-muted text-sm leading-relaxed">
+          Tanpa showroom mewah, tanpa tim marketing besar. Kualitas sama, harga langsung dari workshop.
         </p>
       </div>
     </div>
   </Section>
 
-  <!-- Location -->
+  <!-- Visit Us -->
+  <Section background="blue-light">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-bold text-gc-text mb-4">
+          Bisa Kunjungi Workshop
+        </h2>
+        <p class="text-gc-muted mb-6">
+          Berbeda dengan brand online yang tidak punya lokasi fisik, Anda bisa datang ke workshop kami di Tangerang Selatan. Lihat langsung proses pembuatan, pilih material, dan pastikan kualitas sebelum pesan.
+        </p>
+        <p class="text-gc-muted mb-6">
+          <strong class="text-gc-text">By appointment</strong> — chat WhatsApp dulu untuk jadwalkan kunjungan.
+        </p>
+        <Button variant="secondary" href={whatsappVisit} target="_blank">
+          Jadwalkan Kunjungan
+        </Button>
+      </div>
+      <div>
+        <ImagePlaceholder label="Foto proses pembuatan kasur" aspectRatio="4/3" class="shadow-lg rounded-2xl" />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Location & Contact -->
   <Section background="cream" size="sm">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-xl font-bold text-stone-900 mb-6">Lokasi & Layanan</h2>
-      <div class="grid grid-cols-2 gap-4 text-sm">
-        <div class="text-right text-stone-500">Workshop</div>
-        <div class="text-left text-stone-800 font-medium">Tangerang Selatan</div>
-        <div class="text-right text-stone-500">Area</div>
-        <div class="text-left text-stone-800 font-medium">JABODETABEK</div>
-        <div class="text-right text-stone-500">Jam</div>
-        <div class="text-left text-stone-800 font-medium">Sen-Jum 09-17, Sab 09-12</div>
-        <div class="text-right text-stone-500">Kontak</div>
-        <div class="text-left text-stone-800 font-medium">0877-7813-1579</div>
+      <h2 class="text-xl font-bold text-gc-text mb-6">Lokasi & Layanan</h2>
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div class="text-right text-gc-muted">Workshop</div>
+          <div class="text-left text-gc-text font-medium">Tangerang Selatan</div>
+          <div class="text-right text-gc-muted">Area Layanan</div>
+          <div class="text-left text-gc-text font-medium">JABODETABEK</div>
+          <div class="text-right text-gc-muted">Jam Operasional</div>
+          <div class="text-left text-gc-text font-medium">Sen-Jum 09-17, Sab 09-12</div>
+          <div class="text-right text-gc-muted">WhatsApp</div>
+          <div class="text-left text-gc-text font-medium">0877-7813-1579</div>
+          <div class="text-right text-gc-muted">Delivery</div>
+          <div class="text-left text-gc-text font-medium">Gratis JABODETABEK</div>
+          <div class="text-right text-gc-muted">Pembayaran</div>
+          <div class="text-left text-gc-text font-medium">Transfer / COD</div>
+        </div>
       </div>
       <div class="mt-8">
-        <Button variant="whatsapp" href={whatsappLink} target="_blank">
+        <Button variant="whatsapp" href={whatsappConsult} target="_blank">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
           Chat WhatsApp
         </Button>
       </div>

@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+/* Golden Comfort Brand Colors */
+:root {
+  /* Primary */
+  --gc-gold: #e4ab14;
+  --gc-blue: #0029d7;
+
+  /* Gold gradient (for accents) */
+  --gc-gold-light: #ffeebe;
+
+  /* Backgrounds */
+  --gc-cream: #fefdf8;
+  --gc-blue-light: #f5f7ff;
+
+  /* Text */
+  --gc-text: #1a1a3e;
+  --gc-text-muted: #4a4a6a;
+
+  /* WhatsApp (keep recognizable) */
+  --gc-whatsapp: #25d366;
+}
+
+/* Utility classes for brand colors */
+.text-gc-gold { color: var(--gc-gold); }
+.text-gc-blue { color: var(--gc-blue); }
+.text-gc-text { color: var(--gc-text); }
+.text-gc-muted { color: var(--gc-text-muted); }
+
+.bg-gc-gold { background-color: var(--gc-gold); }
+.bg-gc-blue { background-color: var(--gc-blue); }
+.bg-gc-cream { background-color: var(--gc-cream); }
+.bg-gc-blue-light { background-color: var(--gc-blue-light); }
+
+.border-gc-gold { border-color: var(--gc-gold); }
+.border-gc-blue { border-color: var(--gc-blue); }
+
+/* Gold gradient */
+.bg-gc-gradient {
+  background: linear-gradient(135deg, var(--gc-gold), var(--gc-gold-light));
+}

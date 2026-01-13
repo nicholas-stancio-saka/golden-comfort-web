@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const whatsappBase = "https://wa.me/6287778131579?text=";
+const whatsappCustom = `${whatsappBase}${encodeURIComponent("Halo, saya butuh kasur ukuran custom. Ukuran yang saya butuhkan: [P×L×T cm]")}`;
+---
+
+<Layout title="Custom Sizing - Ukuran Apa Saja" description="Kasur custom ukuran apa saja. Dipan antik, ukuran unik, sudut potong - kami buat sesuai kebutuhan Anda. Workshop langsung di Tangerang Selatan.">
+  <Header />
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-b from-gc-cream to-white pt-12 pb-16 lg:pt-20 lg:pb-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="text-gc-gold font-semibold text-sm uppercase tracking-wider mb-3">
+          Custom Sizing
+        </p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gc-text mb-6 leading-tight">
+          Ukuran Apa Saja,<br />
+          <span class="text-gc-blue">Kami Buat</span>
+        </h1>
+        <p class="text-lg text-gc-muted mb-8">
+          Dipan antik? Bed frame import? Ukuran unik? Tidak masalah. Kami buat kasur sesuai ukuran yang Anda butuhkan — tidak terbatas pada ukuran standar.
+        </p>
+        <Button variant="whatsapp" href={whatsappCustom} target="_blank" size="lg">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Konsultasi Ukuran Custom
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CAN DO -->
+  <Section background="white">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gc-text mb-4">
+        Yang Kami Bisa Buat
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Ukuran Non-Standar</h3>
+        <p class="text-sm text-gc-muted">170×185? 155×195? 140×180? Berapapun ukurannya, kami buat. Tidak terbatas pada ukuran standar toko.</p>
+      </div>
+
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-blue/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Bentuk Khusus</h3>
+        <p class="text-sm text-gc-muted">Sudut potong? Bentuk L? Kurva? Untuk kamar mandi? Kasur boat/RV? Bisa kami akomodasi.</p>
+      </div>
+
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Ketebalan Bebas</h3>
+        <p class="text-sm text-gc-muted">15cm tipis sampai 30cm+ tebal. Sesuaikan dengan tinggi bed frame dan preferensi tidur Anda.</p>
+      </div>
+
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-blue/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Pilihan Kepadatan</h3>
+        <p class="text-sm text-gc-muted">D22 empuk, D25 medium, D30 firm, sampai R70 ortopedik. Sesuai kebutuhan tubuh Anda.</p>
+      </div>
+
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-gold/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Konstruksi Berlapis</h3>
+        <p class="text-sm text-gc-muted">Mau kombinasi? Lapisan R70 di bawah + D22 di atas untuk ortopedik yang tetap nyaman.</p>
+      </div>
+
+      <div class="bg-gc-cream rounded-2xl p-6">
+        <div class="w-12 h-12 bg-gc-blue/20 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-gc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+          </svg>
+        </div>
+        <h3 class="font-bold text-gc-text mb-2">Cover Premium</h3>
+        <p class="text-sm text-gc-muted">Cover knit premium, bukan spunbond murah. Kualitas sama dengan kasur branded.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- HOW TO ORDER -->
+  <Section background="cream">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gc-text mb-3">
+        Cara Pesan Ukuran Custom
+      </h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-6">
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-full bg-gc-gold text-white flex items-center justify-center font-bold shrink-0">1</div>
+          <div>
+            <h3 class="font-bold text-gc-text mb-1">Ukur Bed Frame Anda</h3>
+            <p class="text-gc-muted text-sm">Ukur dari <strong>dalam ke dalam</strong> bingkai (bukan luar ke luar). Panjang × Lebar dalam cm. Kalau perlu, kirim foto bed frame.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-full bg-gc-blue text-white flex items-center justify-center font-bold shrink-0">2</div>
+          <div>
+            <h3 class="font-bold text-gc-text mb-1">Chat WhatsApp</h3>
+            <p class="text-gc-muted text-sm">Kirim ukuran + ketebalan yang diinginkan + ceritakan kebutuhan (empuk/keras/ortopedik). Kami bantu rekomendasikan.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-full bg-gc-gold text-white flex items-center justify-center font-bold shrink-0">3</div>
+          <div>
+            <h3 class="font-bold text-gc-text mb-1">Dapat Quote</h3>
+            <p class="text-gc-muted text-sm">Kami kasih harga transparan sesuai spesifikasi. Tidak ada biaya tersembunyi.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-full bg-gc-blue text-white flex items-center justify-center font-bold shrink-0">4</div>
+          <div>
+            <h3 class="font-bold text-gc-text mb-1">Konfirmasi & Produksi</h3>
+            <p class="text-gc-muted text-sm">Deposit 30%, kasur diproduksi 7-14 hari kerja. Sisa bayar saat terima (COD tersedia untuk JABODETABEK).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <Button variant="whatsapp" href={whatsappCustom} target="_blank">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Kirim Ukuran Sekarang
+        </Button>
+      </div>
+    </div>
+  </Section>
+
+  <!-- COMMON CUSTOM USE CASES -->
+  <Section background="white">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gc-text mb-3">
+        Siapa yang Butuh Ukuran Custom?
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-gc-blue-light rounded-2xl p-6">
+        <h3 class="font-bold text-gc-text mb-3">🛏️ Punya Dipan/Bed Frame Antik</h3>
+        <p class="text-gc-muted text-sm">Bed frame warisan keluarga, ukuran lama yang tidak standar. Kasur toko tidak muat, tapi sayang kalau ganti bed frame.</p>
+      </div>
+
+      <div class="bg-gc-blue-light rounded-2xl p-6">
+        <h3 class="font-bold text-gc-text mb-3">🌏 Bed Frame Import</h3>
+        <p class="text-gc-muted text-sm">IKEA, furniture import dari Eropa/US dengan ukuran berbeda dari standar Indonesia.</p>
+      </div>
+
+      <div class="bg-gc-blue-light rounded-2xl p-6">
+        <h3 class="font-bold text-gc-text mb-3">🏠 Kamar dengan Space Terbatas</h3>
+        <p class="text-gc-muted text-sm">Kamar kost, apartemen studio, atau kamar dengan layout unik yang butuh ukuran presisi.</p>
+      </div>
+
+      <div class="bg-gc-blue-light rounded-2xl p-6">
+        <h3 class="font-bold text-gc-text mb-3">🚐 RV / Camper / Boat</h3>
+        <p class="text-gc-muted text-sm">Kendaraan rekreasi dengan space tidur berukuran tidak standar atau bentuk khusus.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-gc-text py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+        Ukuran Berapa? Ceritakan Kebutuhan Anda
+      </h2>
+      <p class="text-gray-400 mb-8">
+        Chat kami via WhatsApp. Kirim ukuran + foto bed frame kalau perlu. Kami bantu kasih rekomendasi dan quote.
+      </p>
+
+      <Button variant="whatsapp" href={whatsappCustom} target="_blank" size="lg">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Konsultasi Ukuran Custom
+      </Button>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
