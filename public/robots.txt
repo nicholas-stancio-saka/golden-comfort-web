@@ -1,0 +1,8 @@
+# Golden Comfort - Workshop Kasur Indonesia
+# https://goldencomfort.id
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://goldencomfort.id/sitemap-index.xml
