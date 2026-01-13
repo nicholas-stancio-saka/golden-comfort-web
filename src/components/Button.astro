@@ -1,0 +1,52 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'whatsapp' | 'ghost';
+  href?: string;
+  target?: '_blank';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  href,
+  target,
+  size = 'md',
+  fullWidth = false,
+  class: className = ''
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-full';
+
+const variantClasses = {
+  primary: 'bg-amber-600 hover:bg-amber-700 text-white shadow-md hover:shadow-lg',
+  secondary: 'bg-stone-100 hover:bg-stone-200 text-stone-800',
+  whatsapp: 'bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg',
+  ghost: 'text-amber-600 hover:text-amber-700 underline-offset-4 hover:underline'
+};
+
+const sizeClasses = {
+  sm: 'px-5 py-2.5 text-sm',
+  md: 'px-7 py-3.5 text-base',
+  lg: 'px-9 py-4 text-lg'
+};
+
+const classes = [
+  baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  fullWidth ? 'w-full' : '',
+  className
+].filter(Boolean).join(' ');
+---
+
+{href ? (
+  <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button class={classes}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,39 @@
+---
+interface Props {
+  background?: 'white' | 'cream' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  id?: string;
+}
+
+const {
+  background = 'white',
+  size = 'md',
+  class: className = '',
+  id
+} = Astro.props;
+
+const bgClasses = {
+  white: 'bg-white',
+  cream: 'bg-stone-50',
+  dark: 'bg-stone-900 text-white'
+};
+
+const paddingClasses = {
+  sm: 'py-12 lg:py-16',
+  md: 'py-16 lg:py-24',
+  lg: 'py-20 lg:py-32'
+};
+
+const classes = [
+  bgClasses[background],
+  paddingClasses[size],
+  className
+].filter(Boolean).join(' ');
+---
+
+<section id={id} class={classes}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <slot />
+  </div>
+</section>

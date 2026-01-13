@@ -2,254 +2,199 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ProductCard from '../components/ProductCard.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import ValueProp from '../components/ValueProp.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
 import products from '../data/products.json';
 
 const whatsappLink = "https://wa.me/6287778131579";
 
-// Get starting prices for each series
-const seriesWithPrices = products.series.map(series => {
-  const sizes = Object.keys(series.prices);
-  const firstSize = sizes[0];
-  const thicknesses = Object.keys(series.prices[firstSize]);
-  const startingPrice = series.prices[firstSize][thicknesses[0]];
+// Get starting prices for display
+const seriesInfo = products.series.map(series => {
+  const firstSize = Object.keys(series.prices)[0];
+  const firstThickness = Object.keys(series.prices[firstSize])[0];
+  const startingPrice = series.prices[firstSize][firstThickness];
   return { ...series, startingPrice };
 });
+
+// Placeholder testimonials
+const testimonials = [
+  {
+    quote: "Kasur custom ukuran 135×190 untuk dipan antik. Pas banget, kualitas bagus!",
+    name: "Budi S.",
+    location: "Jakarta Selatan"
+  },
+  {
+    quote: "Support+ beneran beda. Sakit punggung saya berkurang setelah seminggu pakai.",
+    name: "Ibu Rina",
+    location: "Tangerang"
+  },
+  {
+    quote: "Harga lebih murah dari toko, tapi kualitas sama bagusnya. Recommended!",
+    name: "Andi P.",
+    location: "Depok"
+  }
+];
 ---
 
 <Layout title="Workshop Kasur Indonesia">
   <Header />
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-amber-50 to-white py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-4xl mx-auto">
-        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-          Workshop Kasur Indonesia
-        </h1>
-        <p class="text-xl lg:text-2xl text-amber-600 font-medium mb-4">
-          Ukuran Custom & Orthopedic
-        </p>
-        <p class="text-2xl lg:text-3xl text-gray-700 italic mb-8">
-          "Dibuat pas untuk Anda"
-        </p>
-        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-          Kasur yang pas untuk tempat tidur Anda, tubuh Anda, dan budget Anda.
-          Langsung dari workshop, 25-40% lebih hemat dari retail.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
-          >
-            Chat WhatsApp Sekarang
-          </a>
-          <a
-            href="/products"
-            class="bg-white hover:bg-gray-50 text-gray-800 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-200 transition-colors"
-          >
-            Lihat Produk
-          </a>
+  <section class="relative bg-gradient-to-b from-amber-50 to-white pt-16 pb-20 lg:pt-24 lg:pb-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text -->
+        <div class="text-center lg:text-left">
+          <p class="text-amber-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            Workshop Kasur Indonesia
+          </p>
+          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-stone-900 mb-6 leading-tight">
+            Dibuat Pas<br />untuk Anda
+          </h1>
+          <p class="text-lg lg:text-xl text-stone-600 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+            Kasur custom ukuran apapun. Orthopedic asli untuk sakit punggung. Langsung dari workshop, 25-40% lebih hemat.
+          </p>
+          <Button variant="whatsapp" href={whatsappLink} target="_blank" size="lg">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Konsultasi Gratis
+          </Button>
+        </div>
+
+        <!-- Image -->
+        <div class="order-first lg:order-last">
+          <ImagePlaceholder label="Foto Workshop / Kasur" aspectRatio="4/3" class="shadow-xl" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Value Props -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Custom Sizing -->
-        <div class="text-center p-6">
-          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Ukuran Custom</h3>
-          <p class="text-gray-600">
-            Tempat tidur antik? Ruang sempit? Dimensi aneh? Kami buat ukuran apa saja — dari 60×90 sampai 200×200 cm.
-          </p>
-        </div>
+  <Section background="white">
+    <div class="grid md:grid-cols-3 gap-10 lg:gap-12">
+      <ValueProp
+        icon="custom"
+        title="Ukuran Custom"
+        description="Dipan antik? Ruang sempit? Kami buat ukuran apapun, dari 60×90 sampai 200×200 cm."
+      />
+      <ValueProp
+        icon="orthopedic"
+        title="Orthopedic Asli"
+        description="Support+ pakai busa R70 (density 70 kg/m³) — standar orthopedic sebenarnya, bukan D30 yang cuma 30 kg/m³."
+      />
+      <ValueProp
+        icon="price"
+        title="Langsung dari Workshop"
+        description="Tanpa perantara, tanpa markup toko. Hemat 25-40% dibanding harga retail dengan kualitas sama."
+      />
+    </div>
+  </Section>
 
-        <!-- True Orthopedic -->
-        <div class="text-center p-6">
-          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Orthopedic Asli</h3>
-          <p class="text-gray-600">
-            Bukan cuma "keras". Support+ kami pakai busa R70 (density 70 kg/m³) — standar orthopedic sebenarnya, bukan D30 yang cuma 30 kg/m³.
-          </p>
+  <!-- Trust Strip -->
+  <section class="bg-stone-900 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="text-2xl lg:text-3xl font-bold text-amber-400">25-40%</div>
+          <div class="text-sm text-stone-400 mt-1">Lebih hemat</div>
         </div>
-
-        <!-- Workshop Direct -->
-        <div class="text-center p-6">
-          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Langsung dari Workshop</h3>
-          <p class="text-gray-600">
-            Tanpa perantara, tanpa markup toko. Hemat 25-40% dibanding harga retail dengan kualitas yang sama.
-          </p>
+        <div>
+          <div class="text-2xl lg:text-3xl font-bold text-amber-400">15-25</div>
+          <div class="text-sm text-stone-400 mt-1">Tahun garansi</div>
+        </div>
+        <div>
+          <div class="text-2xl lg:text-3xl font-bold text-amber-400">7-14</div>
+          <div class="text-sm text-stone-400 mt-1">Hari produksi</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          4 Seri untuk Setiap Kebutuhan
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Dari budget-friendly sampai orthopedic profesional. Garansi 15-25 tahun.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {seriesWithPrices.map((series) => (
-          <ProductCard
-            id={series.id}
-            name={series.name}
-            foam={series.foam}
-            feel={series.feel}
-            warranty={series.warranty}
-            target={series.target}
-            description={series.description}
-            startingPrice={series.startingPrice}
-          />
-        ))}
-      </div>
-
-      <div class="text-center mt-10">
-        <a
-          href="/products"
-          class="inline-block bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
-        >
-          Lihat Semua Produk & Harga
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Custom Order CTA -->
-  <section class="py-16 bg-gradient-to-r from-amber-500 to-amber-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
-        Butuh Ukuran Khusus?
+  <!-- Testimonials -->
+  <Section background="cream">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-stone-900 mb-3">
+        Apa Kata Pelanggan
       </h2>
-      <p class="text-xl text-amber-100 mb-8">
-        Kirim ukuran Anda, kami buatkan dalam 7-14 hari kerja.
-        Gratis ongkir untuk sebagian besar JABODETABEK.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/custom-order"
-          class="bg-white hover:bg-gray-100 text-amber-600 px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
-        >
-          Cara Order Custom
-        </a>
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
-        >
-          Konsultasi Gratis
-        </a>
-      </div>
+      <p class="text-stone-600">Testimoni dari pelanggan JABODETABEK</p>
     </div>
-  </section>
-
-  <!-- Why Different -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          Mengapa Golden Comfort?
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-gray-900 mb-1">Cover Knit Premium</h3>
-            <p class="text-gray-600">Semua model pakai cover knit — sama dengan brand 5-10 juta.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-gray-900 mb-1">Garansi 15-25 Tahun</h3>
-            <p class="text-gray-600">Anti-kempes, tidak akan turun lebih dari 1.5 inch.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-gray-900 mb-1">Gratis Ongkir JABODETABEK</h3>
-            <p class="text-gray-600">Untuk sebagian besar area (beberapa area terpencil tidak termasuk).</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-gray-900 mb-1">COD Tersedia</h3>
-            <p class="text-gray-600">Bayar saat barang sampai untuk area JABODETABEK.</p>
-          </div>
-        </div>
-      </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <TestimonialCard
+          quote={t.quote}
+          name={t.name}
+          location={t.location}
+          isPlaceholder={true}
+        />
+      ))}
     </div>
-  </section>
+  </Section>
+
+  <!-- Products -->
+  <Section background="white">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-stone-900 mb-3">
+        4 Seri untuk Setiap Kebutuhan
+      </h2>
+      <p class="text-stone-600">Cover knit premium semua model. Garansi 15-25 tahun.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {seriesInfo.map((series) => (
+        <a href={`/products#${series.id}`} class="group">
+          <div class="bg-stone-50 rounded-2xl p-5 transition-all hover:bg-amber-50 hover:shadow-md border border-transparent hover:border-amber-200">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-stone-900 group-hover:text-amber-700 transition-colors">
+                {series.name}
+              </h3>
+              <span class="text-xs font-medium text-amber-600 bg-amber-100 px-2 py-1 rounded-full">
+                {series.warranty}
+              </span>
+            </div>
+            <p class="text-sm text-stone-600 mb-3">{series.feel} • {series.foam}</p>
+            <p class="text-xs text-stone-500 mb-4">{series.target}</p>
+            <div class="text-sm">
+              <span class="text-stone-500">Mulai dari</span>
+              <span class="block text-lg font-bold text-stone-900">
+                Rp {(series.startingPrice / 1000).toFixed(0)}k
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/products" class="text-amber-600 hover:text-amber-700 font-medium inline-flex items-center gap-1 hover:underline underline-offset-4">
+        Lihat semua produk & harga
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </Section>
 
   <!-- Final CTA -->
-  <section class="py-16 bg-gray-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+  <section class="bg-gradient-to-br from-amber-600 to-amber-700 py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-4xl font-bold text-white mb-4">
         Siap Tidur Lebih Nyaman?
       </h2>
-      <p class="text-xl text-gray-400 mb-8">
+      <p class="text-lg text-amber-100 mb-8">
         Chat sekarang, konsultasi gratis. Tanpa commitment.
       </p>
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
-      >
+      <Button variant="secondary" href={whatsappLink} target="_blank" size="lg">
+        <svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
         Chat WhatsApp Sekarang
-      </a>
-      <p class="text-gray-500 mt-4 text-sm">
-        Respon cepat di jam kerja (Senin-Jumat 09:00-17:00, Sabtu 09:00-12:00)
+      </Button>
+      <p class="text-amber-200 text-sm mt-4">
+        Respon cepat di jam kerja (Sen-Jum 09:00-17:00)
       </p>
     </div>
   </section>
